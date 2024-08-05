@@ -1,6 +1,6 @@
 // 
 
-
+let flagDraw=0;
 const cross=document.querySelector("#crossHolder").innerHTML;
 const circle=document.querySelector("#circleHolder").innerHTML;
 
@@ -12,6 +12,7 @@ for(let item of arr)
 }
 function Add(e){
     const targetCell=e.target;
+   
       if(turn=="cross")
         {
             targetCell.innerHTML=cross;
@@ -40,6 +41,12 @@ function Add(e){
             a.style.zIndex="100";
             a.style.opacity="1"
         }
+    else if(flag==9){
+        const a=document.querySelector("#popUp3");
+            a.style.zIndex="100";
+            a.style.opacity="1"
+    }
+        
 }
 
 function checkWin(){
@@ -47,6 +54,7 @@ function checkWin(){
 
     for(let item of checkArr)
     {
+         ++flagDraw;
         const a =document.querySelector(`#cell${item[0]}`).title;
         const b =document.querySelector(`#cell${item[1]}`).title;
         const c =document.querySelector(`#cell${item[2]}`).title;
@@ -57,8 +65,12 @@ function checkWin(){
         else if(a=="circle"&&b=="circle"&&c=="circle"){
             return 2;
         }
+        else if(flagDraw==9){
+            return 9;
+        }
 
     }
+    
     return 0;
 }
 
