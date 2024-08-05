@@ -50,11 +50,12 @@ function Add(e){
 }
 
 function checkWin(){
+     ++flagDraw;
     const checkArr=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 
     for(let item of checkArr)
     {
-         ++flagDraw;
+        
         const a =document.querySelector(`#cell${item[0]}`).title;
         const b =document.querySelector(`#cell${item[1]}`).title;
         const c =document.querySelector(`#cell${item[2]}`).title;
